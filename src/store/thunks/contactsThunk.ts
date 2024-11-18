@@ -26,4 +26,11 @@ export const updateContact = createAsyncThunk<IContact, IContact & { id: string 
   }
 );
 
+export const deleteOneContact = createAsyncThunk<string, string>(
+  'contacts/deleteOneContact',
+  async (id: string) => {
+    await axiosApi.delete(`contacts/${id}.json`);
+    return id;
+  }
+);
 
